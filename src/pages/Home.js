@@ -5,7 +5,7 @@ export default function Home({ navigation }) {
   const [ book, setBook ] = useState('');
 
   function handleSubmit() {
-    //navigation.navigate('')
+    navigation.navigate('Books')
   }
 
   return (
@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
         placeholder="Digite o nome do livro"
         style={styles.input}
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Encontrar Livro</Text>
       </TouchableOpacity>
     </View>
