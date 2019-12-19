@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import logo from '../assets/book.png'
+
 export default function Home({ navigation }) {
   const [ book, setBook ] = useState('');
 
   function handleSubmit() {
-    navigation.navigate('Books')
+    navigation.navigate('Books', { book })
   }
 
   return (
@@ -14,6 +15,7 @@ export default function Home({ navigation }) {
       <TextInput 
         placeholder="Digite o nome do livro"
         style={styles.input}
+        onChangeText={text => setBook(text)}
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Encontrar Livro</Text>
