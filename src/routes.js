@@ -16,7 +16,7 @@ const Routes = createAppContainer(
     Books: {
       screen: Books,
       navigationOptions: ({ navigation }) => {
-        const title = navigation.state.params.book
+        const title = navigation.state.params.book || 'Books'
         return ({
           title,
           headerTintColor: '#ddd',
