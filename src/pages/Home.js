@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import logo from '../assets/book.png'
 
 export default function Home({ navigation }) {
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
-    marginHorizontal: 40,
+    paddingHorizontal: 40,
+    backgroundColor: '#DCDCDC'
   },
   logo: {
     aspectRatio: 1,

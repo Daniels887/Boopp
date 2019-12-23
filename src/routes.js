@@ -19,10 +19,6 @@ const Routes = createAppContainer(
         const title = navigation.state.params.book || 'Books'
         return ({
           title,
-          headerTintColor: '#ddd',
-          headerStyle: {
-            backgroundColor: "#6200EE"
-          }
         })
       }
     },
@@ -32,14 +28,19 @@ const Routes = createAppContainer(
         const title = navigation.state.params.item.volumeInfo.title || 'Books'
         return ({
           title,
-          headerTintColor: '#ddd',
-          headerStyle: {
-            backgroundColor: "#6200EE"
-          }
         })
       }
     },
-  }, { headerLayoutPreset: 'center'})
+  },
+  { 
+    defaultNavigationOptions: {
+      headerTintColor: '#ddd',
+      headerStyle: {
+        backgroundColor: "#6200EE"
+      }
+    },
+    headerLayoutPreset: 'center'
+  })
 );
 
 export default Routes;
