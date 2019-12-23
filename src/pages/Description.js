@@ -1,15 +1,21 @@
 import React from 'react';
 import { ScrollView, Text, Image, StyleSheet } from 'react-native';
+import noImage from '../assets/no-image.png';
+
 
 export default function Description({ navigation }) {
   const item = navigation.state.params.item
 
   return (
     <ScrollView style={styles.container}>
-      <Image source={{ uri: item.volumeInfo.imageLinks.smallThumbnail != undefined 
-          ? item.volumeInfo.imageLinks.smallThumbnail : null }}
-          style={styles.img}    
-      />
+      { item.volumeInfo != undefined && item.volumeInfo.imageLinks != undefined ? 
+          (
+          <Image source={{ uri: item.volumeInfo.imageLinks.smallThumbnail != undefined 
+            ? item.volumeInfo.imageLinks.smallThumbnail
+            :null }} style={styles.img} />
+          ) 
+          : <Image source={noImage} style={styles.img} />
+      }
       <Text style={styles.title}>{item.volumeInfo.title ? item.volumeInfo.title : 'Sem título'}</Text>
       <Text style={styles.subtitle}>Autores: 
         <Text style={styles.regular}>
