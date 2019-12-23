@@ -1,10 +1,20 @@
-import React from 'react';
-import { View, FlatList, TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList, TouchableOpacity, Image, Text, StyleSheet, Animated} from 'react-native';
 
 import noImage from '../assets/no-image.png';
 
 export default function BooksList({ data, handleClick }) {
- 
+  const [fadeAnim] = useState(new Animated.Value(0))
+
+  function onLoad(event) {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 2000,
+      }
+    ).start();
+  }
   return (
     <FlatList
         data={data}
@@ -16,11 +26,11 @@ export default function BooksList({ data, handleClick }) {
               <TouchableOpacity onPress={() => handleClick(item)}>
               { item.volumeInfo != undefined && item.volumeInfo.imageLinks != undefined ? 
                 (
-                  <Image source={{ uri: item.volumeInfo.imageLinks.smallThumbnail != undefined 
+                  <Animated.Image source={{ uri: item.volumeInfo.imageLinks.smallThumbnail != undefined 
                     ? item.volumeInfo.imageLinks.smallThumbnail
-                    :null }} style={styles.img} />
+                    :null }} style={[styles.img, {opacity: fadeAnim}]}  onLoad={onLoad} />
                 ) 
-                : <Image source={noImage} style={styles.img} />
+                : <Animated.Image source={noImage} style={[styles.img, {opacity: fadeAnim}]} onLoad={onLoad} />
               }
               </TouchableOpacity>
             </View>
