@@ -9,4 +9,9 @@ Projeto feito em React Native, pesquisa de livros utilizando a api do google boo
 ### Depêndencias utilizadas
 * Axios
 
+### Getting started
+
+* Rode npm install ou yarn para instalar as dependências
+* No android ou ios rode a aplicação
+
 > Que a sorte esteja com você
