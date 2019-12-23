@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, ActivityIndicator} from 'react-native';
 import api from '../services/api.js';
 
 export default function pages({ navigation }) {
@@ -12,7 +12,6 @@ export default function pages({ navigation }) {
         const response = await api.get(`volumes?q=${navigation.state.params.book}`)
         const { items } = response.data
         setData(items)
-        console.log(items)
         setLoad(false)
       }catch(e) {
         navigation.navigate('Home')
@@ -27,7 +26,7 @@ export default function pages({ navigation }) {
   return (
     <View style={styles.container}>
       { load ? (
-        <Text>Carregando...</Text>
+        <ActivityIndicator size="large" color="#6200EE" />
       ) : (
         
         <FlatList
@@ -59,19 +58,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 20
+    backgroundColor: "#ddd",
   },
   containerBook: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+    marginHorizontal: 20,
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: "#fff"
   },
   title: {
     textAlign: 'center',
     fontSize: 21,
-    color: '#6200EE'
+    color: '#6200EE',
   },
   img: {
     width: 150,
