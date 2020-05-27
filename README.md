@@ -1,4 +1,4 @@
-# Boopp
+# :closed_book: Boopp
 
 Projeto feito em React Native, pesquisa de livros utilizando a api do google books.
 
@@ -11,13 +11,13 @@ Projeto feito em React Native, pesquisa de livros utilizando a api do google boo
 - Visualizar a lista de livros relacionados;
 - Clicar em um livro e ver os detalhes sobre ele.
 
-### Techs
+### :wrench: Techs
 * Axios;
 * React-navigation.
 
-### Getting started
+### :computer: Getting started
 
 * Rode npm install ou yarn para instalar as dependências;
 * No android ou ios rode a aplicação.
 
-> Que a sorte esteja com você
+> Que a sorte esteja com você :muscle:
